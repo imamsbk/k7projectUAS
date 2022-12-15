@@ -35,9 +35,23 @@ public class MenuUtama extends javax.swing.JFrame {
         mn2010 = new javax.swing.JMenuItem();
         mn2015 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        mndpd = new javax.swing.JMenuItem();
-        mndprd1 = new javax.swing.JMenuItem();
-        mndprd2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         thn = new javax.swing.JMenu();
         mn2009 = new javax.swing.JMenuItem();
         mn2014 = new javax.swing.JMenuItem();
@@ -49,7 +63,7 @@ public class MenuUtama extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1000, 500));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("SELAMAT DATANG DI DATA BPS PEMILU");
+        jLabel1.setText("SELAMAT DATANG DI DATA BPS PEMILU ");
 
         jLabel2.setText("14 DESEMBER 2022");
 
@@ -76,29 +90,59 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jMenu1.setText("STATISTIK PEMILU");
 
-        mndpd.setText("DPD");
-        mndpd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mndpdActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mndpd);
+        jMenu3.setText("DPD");
 
-        mndprd1.setText("DPRD I");
-        mndprd1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mndprd1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mndprd1);
+        jMenuItem3.setText("DKI JAKARTA");
+        jMenu3.add(jMenuItem3);
 
-        mndprd2.setText("DPRD II");
-        mndprd2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mndprd2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mndprd2);
+        jMenuItem4.setText("JAWA BARAT");
+        jMenu3.add(jMenuItem4);
+
+        jMenuItem5.setText("JAWA TENGAH");
+        jMenu3.add(jMenuItem5);
+
+        jMenuItem6.setText("JAWA TIMUR");
+        jMenu3.add(jMenuItem6);
+
+        jMenuItem7.setText("BANTEN");
+        jMenu3.add(jMenuItem7);
+
+        jMenu1.add(jMenu3);
+
+        jMenu4.setText("DPRD I");
+
+        jMenuItem8.setText("KABUPATEN SERANG");
+        jMenu4.add(jMenuItem8);
+
+        jMenuItem9.setText("KABUPATEN PANDEGLANG");
+        jMenu4.add(jMenuItem9);
+
+        jMenuItem10.setText("KABUPATEN BOGOR");
+        jMenu4.add(jMenuItem10);
+
+        jMenuItem11.setText("KABUPATEN GARUT");
+        jMenu4.add(jMenuItem11);
+
+        jMenu1.add(jMenu4);
+
+        jMenu5.setText("DPRD II");
+
+        jMenuItem1.setText("KOTA JAKARTA PUSAT");
+        jMenu5.add(jMenuItem1);
+
+        jMenuItem2.setText("KOTA JAKARTA TIMUR");
+        jMenu5.add(jMenuItem2);
+
+        jMenuItem12.setText("KOTA JAKARTA BARAT");
+        jMenu5.add(jMenuItem12);
+
+        jMenuItem13.setText("KOTA JAKARTA UTARA");
+        jMenu5.add(jMenuItem13);
+
+        jMenuItem14.setText("KOTA JAKARTA SELATAN");
+        jMenu5.add(jMenuItem14);
+
+        jMenu1.add(jMenu5);
 
         jMenuBar1.add(jMenu1);
 
@@ -159,30 +203,12 @@ public class MenuUtama extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mndpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndpdActionPerformed
-        // TODO add your handling code here:
-        DPD d = new DPD();
-        d.setVisible(true);
-    }//GEN-LAST:event_mndpdActionPerformed
-
     private void mn2009ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn2009ActionPerformed
         // TODO add your handling code here:
         CekData c = new CekData();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mn2009ActionPerformed
-
-    private void mndprd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndprd1ActionPerformed
-        // TODO add your handling code here:
-        DPRD1 d = new DPRD1();
-        d.setVisible(true);
-    }//GEN-LAST:event_mndprd1ActionPerformed
-
-    private void mndprd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndprd2ActionPerformed
-        // TODO add your handling code here:
-        DPRD2 d = new DPRD2();
-        d.setVisible(true);
-    }//GEN-LAST:event_mndprd2ActionPerformed
 
     private void mn2014ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn2014ActionPerformed
         // TODO add your handling code here:
@@ -246,15 +272,29 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem mn2009;
     private javax.swing.JMenuItem mn2010;
     private javax.swing.JMenuItem mn2014;
     private javax.swing.JMenuItem mn2015;
     private javax.swing.JMenuItem mn2019;
-    private javax.swing.JMenuItem mndpd;
-    private javax.swing.JMenuItem mndprd1;
-    private javax.swing.JMenuItem mndprd2;
     private javax.swing.JMenu thn;
     private javax.swing.JMenu thn1;
     // End of variables declaration//GEN-END:variables
