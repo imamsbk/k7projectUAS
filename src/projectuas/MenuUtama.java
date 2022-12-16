@@ -289,27 +289,27 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void mn2009ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn2009ActionPerformed
         // TODO add your handling code here:
-        CekData c = new CekData();
+        Data2009 c = new Data2009();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mn2009ActionPerformed
 
     private void mn2014ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn2014ActionPerformed
         // TODO add your handling code here:
-        CekData c = new CekData();
+        Data2014 c = new Data2014();
         c.setVisible(true);
-        this.dispose();
+        this.dispose();;
     }//GEN-LAST:event_mn2014ActionPerformed
 
     private void mn2019ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn2019ActionPerformed
         // TODO add your handling code here:
-        CekData c = new CekData();
+        Data2019 c = new Data2019();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mn2019ActionPerformed
 
     private void mn2010ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn2010ActionPerformed
-        new Login().setVisible(true);// TODO add your handling code here:
+        new About().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_mn2010ActionPerformed
 
     private void mn2015ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn2015ActionPerformed
