@@ -27,11 +27,10 @@ DefaultTableModel tabelModel;
         tabelModel = new DefaultTableModel(); 
         tabel2019.setModel(tabelModel);
         
-        tabelModel.addColumn("id");
-        tabelModel.addColumn("pdip");
-        tabelModel.addColumn("pks");
-        tabelModel.addColumn("golkar");
-        tabelModel.addColumn("gerindra");
+        tabelModel.addColumn("PDIP");
+        tabelModel.addColumn("PKS");
+        tabelModel.addColumn("GOLKAR");
+        tabelModel.addColumn("GERINDRA");
         tampilTabel();
     }
     
@@ -49,12 +48,11 @@ DefaultTableModel tabelModel;
             
             while(rs.next())
             {
-              Object obj[] = new Object[7];
-              obj[0] = rs.getString(1);
-              obj[1] = rs.getString(2);
-              obj[2] = rs.getString(3);
-              obj[3] = rs.getString(4);
-              obj[4] = rs.getString(5);
+              Object obj[] = new Object[4];
+              obj[0] = rs.getString(2);
+              obj[1] = rs.getString(3);
+              obj[2] = rs.getString(4);
+              obj[3] = rs.getString(5);
 
                tabelModel.addRow(obj);
             }
@@ -115,7 +113,7 @@ DefaultTableModel tabelModel;
         });
         jScrollPane1.setViewportView(tabel2019);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 570, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 570, 150));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("DATA JUMLAH KESELURUHAN PARTAI TAHUN 2019");
@@ -128,11 +126,12 @@ DefaultTableModel tabelModel;
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pack();
+        setSize(new java.awt.Dimension(909, 546));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabel2019MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel2019MouseClicked

@@ -27,11 +27,10 @@ DefaultTableModel tabelModel;
         tabelModel = new DefaultTableModel(); 
         tabel2009.setModel(tabelModel);
         
-        tabelModel.addColumn("id");
-        tabelModel.addColumn("pdip");
-        tabelModel.addColumn("pks");
-        tabelModel.addColumn("golkar");
-        tabelModel.addColumn("gerindra");
+        tabelModel.addColumn("PDIP");
+        tabelModel.addColumn("PKS");
+        tabelModel.addColumn("GOLKAR");
+        tabelModel.addColumn("GERINDRA");
         tampilTabel();
     }
     
@@ -49,12 +48,11 @@ DefaultTableModel tabelModel;
             
             while(rs.next())
             {
-              Object obj[] = new Object[7];
-              obj[0] = rs.getString(1);
-              obj[1] = rs.getString(2);
-              obj[2] = rs.getString(3);
-              obj[3] = rs.getString(4);
-              obj[4] = rs.getString(5);
+              Object obj[] = new Object[4];
+              obj[0] = rs.getString(2);
+              obj[1] = rs.getString(3);
+              obj[2] = rs.getString(4);
+              obj[3] = rs.getString(5);
 
                tabelModel.addRow(obj);
             }
@@ -92,6 +90,7 @@ DefaultTableModel tabelModel;
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1000, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1200, 600));
@@ -116,7 +115,7 @@ DefaultTableModel tabelModel;
         });
         jScrollPane1.setViewportView(tabel2009);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 570, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 570, 200));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("DATA JUMLAH KESELURUHAN PARTAI TAHUN 2014");
@@ -129,11 +128,12 @@ DefaultTableModel tabelModel;
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pack();
+        setSize(new java.awt.Dimension(1014, 507));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabel2009MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel2009MouseClicked

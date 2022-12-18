@@ -5,18 +5,68 @@
  */
 package projectuas;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement; 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat; 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author LENOVO
  */
 public class DPD extends javax.swing.JFrame {
+    
+    DefaultTableModel tabelModel;
+    public DPD() {
+        initComponents();
+        tabelModel = new DefaultTableModel(); 
+        tblDpd.setModel(tabelModel);
+        
+        tabelModel.addColumn("ID");
+        tabelModel.addColumn("UMUR");
+        tabelModel.addColumn("JUMLAH PESERTA");
+        tabelModel.addColumn("WILAYAH");
+        tampilTabel();
+    }
+    
+    public void tampilTabel() {
+        tabelModel.getDataVector().removeAllElements();
+        tabelModel.fireTableDataChanged();
+    
+        try
+        {
+            Connection konek = Koneksi.getKoneksi();
+            Statement state = konek.createStatement();
+            String query = "SELECT * FROM dpd";
+            
+            ResultSet rs = state.executeQuery(query);
+            
+            while(rs.next())
+            {
+              Object obj[] = new Object[4];
+              obj[0] = rs.getString(1);
+              obj[1] = rs.getString(2);
+              obj[2] = rs.getString(3);
+              obj[3] = rs.getString(4);
+
+               tabelModel.addRow(obj);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+
+        }
+    }
 
     /**
      * Creates new form DPD
-     */
-    public DPD() {
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,10 +79,12 @@ public class DPD extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDpd = new javax.swing.JTable();
+        BtnGrafik = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -45,28 +97,44 @@ public class DPD extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 418, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, -1, -1));
 
-        jList1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "ACEH", "SUMATERA ", "BANTEN", "DKI JAKARTA", "JAWA BARAT", "JAWA TENGAH", "JAWA TIMUR", "BALI", "NUSA TENGGARA BARAT", "NUSA TENGGARA TIMUR", "KALIMANTAN ", "SULAWESI", "PAPUA", " " };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        tblDpd.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblDpd);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 680, 230));
+
+        BtnGrafik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BtnGrafik.setText("Diagram");
+        BtnGrafik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGrafikActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 352, 180));
+        getContentPane().add(BtnGrafik, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 105, 40));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Login l = new Login();
-        l.setVisible(true);
-        this.dispose();
+       this.dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BtnGrafikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGrafikActionPerformed
+        //ChartJakarta r = new ChartJakarta();
+       // r.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_BtnGrafikActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,9 +172,10 @@ public class DPD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnGrafik;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblDpd;
     // End of variables declaration//GEN-END:variables
 }
