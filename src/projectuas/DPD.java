@@ -82,12 +82,13 @@ public class DPD extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDpd = new javax.swing.JTable();
         BtnGrafik = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("DPD");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 56, -1, -1));
 
@@ -123,6 +124,10 @@ public class DPD extends javax.swing.JFrame {
         });
         getContentPane().add(BtnGrafik, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 105, 40));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/5430.png_860-removebg-preview.png"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 90, 480, 410));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -132,8 +137,8 @@ public class DPD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnGrafikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGrafikActionPerformed
-        //ChartJakarta r = new ChartJakarta();
-       // r.setVisible(true); // TODO add your handling code here:
+        DiagramJakarta r = new DiagramJakarta();
+        r.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_BtnGrafikActionPerformed
 
     /**
@@ -175,6 +180,7 @@ public class DPD extends javax.swing.JFrame {
     private javax.swing.JButton BtnGrafik;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDpd;
     // End of variables declaration//GEN-END:variables

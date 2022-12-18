@@ -72,12 +72,15 @@ DefaultTableModel tabelModel;
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDprd1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("DPRD I");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 47, -1, -1));
 
@@ -103,6 +106,15 @@ DefaultTableModel tabelModel;
         jScrollPane2.setViewportView(tblDprd1);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 120, 657, 180));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/kampanye-pilkada-2.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 800, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 500));
+
+        jPanel2.setBackground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 500));
 
         pack();
         setLocationRelativeTo(null);
@@ -151,6 +163,9 @@ DefaultTableModel tabelModel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDprd1;
     // End of variables declaration//GEN-END:variables

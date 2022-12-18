@@ -50,7 +50,8 @@ public class Login extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1000, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         jLabel1.setText("LOGIN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 44, -1, -1));
 
@@ -75,7 +76,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
+
+        txusername.setBackground(new java.awt.Color(255, 204, 204));
+        txusername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 150, 177, -1));
+
+        txpassword.setBackground(new java.awt.Color(255, 204, 204));
+        txpassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 216, 177, -1));
 
         jButton3.setText("REGISTER");
