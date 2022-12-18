@@ -79,7 +79,7 @@ public class Register extends javax.swing.JFrame {
         btnregister = new javax.swing.JButton();
         btnbatal = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txwilayah = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,7 +112,7 @@ public class Register extends javax.swing.JFrame {
 
         jLabel6.setText("ZONA");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DPD", "DPRD I", "DPRD II" }));
+        txwilayah.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DPD", "DPRD I", "DPRD II" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +140,7 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txwilayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(txconpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,7 +171,7 @@ public class Register extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txwilayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbatal)
@@ -189,6 +189,8 @@ public class Register extends javax.swing.JFrame {
         String username = txusername.getText().toString().trim();
         String password = txpassword.getText().toString().trim();
         String conpassword = txconpassword.getText().toString().trim();
+        //String wilayah = txwilayah.getText().toString().trim();
+        
         
         if (!password.equals(conpassword)){
             JOptionPane.showMessageDialog(null, "Password not match");
@@ -197,11 +199,13 @@ public class Register extends javax.swing.JFrame {
         }else{
             try{
                 Connection c = Koneksi.getKoneksi();
-                String sql = "INSERT INTO login VALUES (id = ? ?, ?)";
+                String sql = "INSERT INTO login VALUES (id = ?, ?, ?, ?)";
                 PreparedStatement p = c.prepareStatement(sql);
                 p.setString(1, id);
                 p.setString(2, username);
                 p.setString(3, password);
+                //p.setString(4, wilayah);
+                
                 p.executeUpdate();
                 p.close();
                 JOptionPane.showMessageDialog(null,"create account succesfully");
@@ -259,7 +263,6 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbatal;
     private javax.swing.JButton btnregister;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -270,5 +273,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txid;
     private javax.swing.JPasswordField txpassword;
     private javax.swing.JTextField txusername;
+    private javax.swing.JComboBox<String> txwilayah;
     // End of variables declaration//GEN-END:variables
 }

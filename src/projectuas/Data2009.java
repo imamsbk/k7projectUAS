@@ -1,21 +1,73 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package projectuas;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement; 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat; 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+/**
 /**
  *
- * @author 004
+ * @author ASUS
  */
 public class Data2009 extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Data2009
-     */
+DefaultTableModel tabelModel;
     public Data2009() {
         initComponents();
+        tabelModel = new DefaultTableModel(); 
+        tabel2009.setModel(tabelModel);
+        
+        tabelModel.addColumn("id");
+        tabelModel.addColumn("pdip");
+        tabelModel.addColumn("pks");
+        tabelModel.addColumn("golkar");
+        tabelModel.addColumn("gerindra");
+        tampilTabel();
     }
+    
+    public void tampilTabel() {
+        tabelModel.getDataVector().removeAllElements();
+        tabelModel.fireTableDataChanged();
+    
+        try
+        {
+            Connection konek = Koneksi.getKoneksi();
+            Statement state = konek.createStatement();
+            String query = "SELECT * FROM thn2009";
+            
+            ResultSet rs = state.executeQuery(query);
+            
+            while(rs.next())
+            {
+              Object obj[] = new Object[7];
+              obj[0] = rs.getString(1);
+              obj[1] = rs.getString(2);
+              obj[2] = rs.getString(3);
+              obj[3] = rs.getString(4);
+              obj[4] = rs.getString(5);
+
+               tabelModel.addRow(obj);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+
+        }
+    }
+    
+    public void simpan(){
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,25 +78,27 @@ public class Data2009 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        searchbar = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabel2009 = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+
+        jButton4.setText("jButton4");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 600));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("KEMBALI");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.setMinimumSize(new java.awt.Dimension(1200, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 500));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(500, 500));
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabel2009.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -55,47 +109,47 @@ public class Data2009 extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        tabel2009.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabel2009MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabel2009);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Cari Data");
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 570, 410));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
-                    .addComponent(searchbar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 892, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(254, 254, 254))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1)
-                    .addComponent(searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setText("DATA JUMLAH KESELURUHAN PARTAI TAHUN 2009");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jButton2.setText("KEMBALI");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 110, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void tabel2009MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel2009MouseClicked
+        // TODO add your handling code here:
+        int a = tabel2009.getSelectedRow();
+        if(a == -1) {
+            return;
+        }
+    }//GEN-LAST:event_tabel2009MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
         this.dispose();
         MenuUtama a = new MenuUtama();
-        a.setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        a.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +177,9 @@ public class Data2009 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Data2009.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -133,10 +190,13 @@ public class Data2009 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField searchbar;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabel2009;
     // End of variables declaration//GEN-END:variables
 }
